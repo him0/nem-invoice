@@ -57,3 +57,7 @@ typings/
 # dotenv environment variables file
 .env
 
+public/stylesheets/*
+!public/stylesheets/.gitkeep
+public/javascripts/*
+!public/javascripts/.gitkeep

@@ -1,0 +1,15 @@
+{
+  "name": "nem-invoice",
+  "version": "1.0.0",
+  "description": "invoice for nem/xem payment",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "him0",
+  "license": "MIT",
+  "repository" : {
+    "type" : "git",
+    "url" : "https://github.com/him0/nem-invoice.git"
+  }
+}

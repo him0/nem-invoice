@@ -17,6 +17,7 @@ var Content = React.createClass({
       </head>
       <body>
         <h1>{this.props.outputWord}</h1>
+        {this.props.id}
       </body>
       </html>
     );

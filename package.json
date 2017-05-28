@@ -33,5 +33,11 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/him0/nem-invoice.git"
+  },
+  "devDependencies": {
+    "babel-loader": "^7.0.0",
+    "node-sass": "^4.5.3",
+    "sass-loader": "^6.0.5",
+    "style-loader": "^0.18.1"
   }
 }

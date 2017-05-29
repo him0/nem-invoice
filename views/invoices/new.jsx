@@ -1,26 +1,28 @@
-var React = require('react');
-var ReactBS = require('react-bootstrap');
+"use strict";
 
-var Content = React.createClass({
-  getDefaultProps: function () {
+import React, {Component, PropTypes} from 'react';
+import Layout from '../_layout';
+
+export default class Content extends React.Component {
+
+  static get propTypes() {
     return {
-      title: 'Create NEM Invoice',
-      outputWord: 'めっちゃつくれ'
-    };
-  },
-  render: function () {
-    return (
-      <html lang="ja">
-      <head>
-        <meta charSet="UTF-8" />
-        <title>{this.props.title}</title>
-      </head>
-      <body>
-        <h1>{this.props.outputWord}</h1>
-      </body>
-      </html>
-    );
+    }
   }
-});
 
-module.exports = Content;
+  static get defaultProps() {
+    return {
+      pageTitle: 'Create New Invoice',
+      message: 'めっちゃつくれ'
+    };
+  }
+
+  render() {
+    return (
+      <Layout pageTitle={this.props.pageTitle}>
+        <h1>{this.props.message}</h1>
+        <h1>{this.props.test}</h1>
+      </Layout>
+    )
+  }
+}

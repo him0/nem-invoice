@@ -3,9 +3,10 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = [
   {
-    entry: {
-      style: './src/javascripts/index.js'
-    },
+    entry: [
+      './src/javascripts/index.js',
+      'react-mdl/extra/material.min.js'
+    ],
     output: {
       path: path.resolve(__dirname, './public/javascripts/'),
       filename: 'bundle.js'
@@ -23,12 +24,13 @@ module.exports = [
     devtool: 'source-map'
   },
   {
-    entry: {
-      style: './src/stylesheets/style.scss'
-    },
+    entry: [
+      './src/stylesheets/style.scss',
+      'react-mdl/extra/material.min.css'
+    ],
     output: {
       path: path.resolve(__dirname, './public/stylesheets'),
-      filename: '[name].css'
+      filename: 'style.css'
     },
     module: {
       rules: [
@@ -59,7 +61,7 @@ module.exports = [
     },
     devtool: 'source-map',
     plugins: [
-      new ExtractTextPlugin('[name].css')
+      new ExtractTextPlugin('style.css')
     ]
   }
 ];

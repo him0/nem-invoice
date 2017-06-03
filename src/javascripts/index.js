@@ -1,7 +1,7 @@
-'use strict'
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-import 'react'
-import 'react-mdl'
+import 'react-mdl/extra/material';
 
-import base from './routes/base';
-base();
+import Base from './base';
+Base();

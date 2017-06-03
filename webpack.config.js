@@ -15,9 +15,8 @@ module.exports = [
     module: {
       rules: [
         {
-          test: /\.js[x]?$/,
-          use: 'babel-loader',
-          exclude: /node_modules/
+          test: /\.js?$/,
+          use: 'babel-loader'
         }
       ]
     },
@@ -28,7 +27,10 @@ module.exports = [
             'NODE_ENV': "'development'"
         }
     })
-    ]
+    ],
+    resolve: {
+      extensions: ['.js', '.react.js']
+    }, 
   },
   {
     entry: [

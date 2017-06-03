@@ -12,15 +12,13 @@ export default class Content extends React.Component {
 
   static get defaultProps() {
     return {
-      pageTitle: 'Create New Invoice',
-      message: '情報表示'
     };
   }
 
   render() {
     return (
       <ApplicationLayout pageTitle={this.props.pageTitle}>
-        <h1>{this.props.message}</h1>
+        <div id="root" />
       </ApplicationLayout>
     )
   }

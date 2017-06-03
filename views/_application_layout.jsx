@@ -6,6 +6,9 @@ import {Layout, Drawer, Navigation, Header, Textfield, Content, Grid, Cell} from
 import { getColorClass, getTextColorClass } from 'react-mdl';
 
 export default class ApplicationLayout extends React.Component {
+  constructor(props) {
+    super(props);
+  }
 
   static get propTypes() {
     return {
@@ -37,13 +40,16 @@ export default class ApplicationLayout extends React.Component {
       </head>
       <body>
         <Layout fixedHeader>
-        <Header title={this.buildTitle()}>
-          <Navigation>
-            <a href="#">Link</a>
-            <a href="#">Link</a>
-          </Navigation>
-        </Header>
-        {this.props.children}
+          <Header title={this.buildTitle()}>
+            <Textfield
+              value=""
+              onChange={() => {}}
+              label="Search"
+              expandable
+              expandableIcon="search"
+            />
+          </Header>
+          {this.props.children}
         </Layout>
         <script src="/javascripts/bundle.js"></script>
       </body>

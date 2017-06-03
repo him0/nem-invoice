@@ -1,0 +1,2 @@
+webpack: webpack --watch
+web: DEBUG=nem-invoice:* PORT=8080 node-dev ./bin/www

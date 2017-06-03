@@ -12,12 +12,18 @@ export default class Content extends React.Component {
 
   static get defaultProps() {
     return {
+      pageTitle: "Invoice"
+    };
+  }
+
+  buildInitialData () {
+    return {
     };
   }
 
   render() {
     return (
-      <ApplicationLayout pageTitle={this.props.pageTitle}>
+      <ApplicationLayout pageTitle={this.props.pageTitle} initialData={this.buildInitialData()}>
         <div id="root" />
       </ApplicationLayout>
     )

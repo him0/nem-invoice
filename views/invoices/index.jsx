@@ -18,9 +18,15 @@ export default class Content extends React.Component {
     };
   }
 
+  buildInitialData () {
+    return {
+      pageTitle: "List of NEM Invoices"
+    };
+  }
+
   render() {
     return (
-      <ApplicationLayout pageTitle={this.props.pageTitle}>
+      <ApplicationLayout pageTitle={this.props.pageTitle} initialData={this.buildInitialData()}>
         <div id="root" pageTitle={this.props.pageTitle} />
       </ApplicationLayout>
     )

@@ -9,7 +9,7 @@ router.get('/', (req, res, next) => {
 
 // List of Invoices group by reciving address
 router.get('/invoices', (req, res, next) => {
-  res.render('invoices/index', {});
+  res.render('invoices/index', {test: "aaa"});
 });
 
 // Create Page

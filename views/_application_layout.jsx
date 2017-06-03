@@ -17,7 +17,8 @@ export default class ApplicationLayout extends React.Component {
 
   static get defaultProps() {
     return {
-      pageTitle: null
+      pageTitle: null,
+      initialData: {}
     };
   }
 
@@ -37,6 +38,7 @@ export default class ApplicationLayout extends React.Component {
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
         <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+        <script id="initial-data" type="text/plain" data-json={JSON.stringify(this.props.initialData)}></script>
       </head>
       <body>
         <Layout fixedHeader>

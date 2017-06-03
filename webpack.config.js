@@ -1,11 +1,11 @@
 var path = require('path');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var webpack = require('webpack');
 
 module.exports = [
   {
     entry: [
-      './src/javascripts/index.js',
-      'react-mdl/extra/material.min.js'
+      './src/javascripts/index.js'
     ],
     output: {
       path: path.resolve(__dirname, './public/javascripts/'),
@@ -15,18 +15,24 @@ module.exports = [
     module: {
       rules: [
         {
-          test: /\.js$/,
+          test: /\.js[x]?$/,
           use: 'babel-loader',
           exclude: /node_modules/
         }
       ]
     },
-    devtool: 'source-map'
+    devtool: 'source-map',
+    plugins: [
+      new webpack.DefinePlugin({
+        'process.env': {
+            'NODE_ENV': "'development'"
+        }
+    })
+    ]
   },
   {
     entry: [
-      './src/stylesheets/style.scss',
-      'react-mdl/extra/material.min.css'
+      './src/stylesheets/style.scss'
     ],
     output: {
       path: path.resolve(__dirname, './public/stylesheets'),

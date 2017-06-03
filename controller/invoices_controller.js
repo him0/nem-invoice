@@ -4,11 +4,11 @@ import express from 'express';
 const router  = express.Router();
 
 router.get('/', (req, res, next) => {
-  res.redirect('/new');
+  res.redirect('/invoices/new');
 });
 
 // Create Page
-router.get('/new', (req, res, next) => {
+router.get('/invoices/new', (req, res, next) => {
   res.render('invoices/new', {test: "ああああ"});
 });
 

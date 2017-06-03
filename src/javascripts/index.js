@@ -1,3 +1,7 @@
-"use strict";
+'use strict'
 
-console.log("Hello, World!");
+import 'react'
+import 'react-mdl'
+
+import base from './routes/base';
+base();

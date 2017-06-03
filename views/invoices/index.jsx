@@ -1,7 +1,8 @@
 "use strict";
 
 import React, {Component, PropTypes} from 'react';
-import Layout from '../_layout';
+import ApplicationLayout from '../_application_layout';
+import { Button, Card, CardText } from 'react-mdl';
 
 export default class Content extends React.Component {
 
@@ -13,15 +14,15 @@ export default class Content extends React.Component {
   static get defaultProps() {
     return {
       pageTitle: 'Create New Invoice',
-      message: 'めっちゃつくれ'
+      message: '一覧表示'
     };
   }
 
   render() {
     return (
-      <Layout pageTitle={this.props.pageTitle}>
+      <ApplicationLayout pageTitle={this.props.pageTitle}>
         <h1>{this.props.message}</h1>
-      </Layout>
+      </ApplicationLayout>
     )
   }
 }

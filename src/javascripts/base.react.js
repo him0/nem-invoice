@@ -9,8 +9,8 @@ export default () => {
   render(
     <BrowserRouter>
       <Switch>
-        <Route path='/invoices' component={InvoicesIndex} />
         <Route path='/invoices/new' component={InvoicesNew} />
+        <Route path='/invoices' component={InvoicesIndex} />
       </Switch>
     </BrowserRouter>,
     document.getElementById('root')

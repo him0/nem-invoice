@@ -1,6 +1,9 @@
 "use strict";
 
 import React, {Component, PropTypes} from 'react';
+import {Grid, Cell, Card, Textfield} from 'react-mdl';
+import ClassNames from 'classnames';
+
 import ApplicationLayout from '../_application_layout';
 
 export default class Content extends React.Component {

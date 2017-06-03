@@ -27,7 +27,7 @@ export default class Content extends React.Component {
   render() {
     return (
       <ApplicationLayout pageTitle={this.props.pageTitle} initialData={this.buildInitialData()}>
-        <div id="root" pageTitle={this.props.pageTitle} />
+        <div id="root" />
       </ApplicationLayout>
     )
   }

@@ -1,1 +1,14 @@
 @import "~react-mdl/extra/material";
+
+header {
+  img {
+    height: 30px;
+  }
+}
+
+.invoice {
+  padding: 80px 56px;
+  .is-small-screen {
+    padding: 40px 28px;
+  }
+}

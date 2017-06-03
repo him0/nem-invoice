@@ -1,9 +1,9 @@
 "use strict";
 
 import React from 'react';
-import classNames from 'classnames';
 import {Layout, Drawer, Navigation, Header, Textfield, Content, Grid, Cell} from 'react-mdl';
 import { getColorClass, getTextColorClass } from 'react-mdl';
+import ClassNames from 'classnames';
 
 export default class ApplicationLayout extends React.Component {
   constructor(props) {
@@ -41,8 +41,8 @@ export default class ApplicationLayout extends React.Component {
         <script id="initial-data" type="text/plain" data-json={JSON.stringify(this.props.initialData)}></script>
       </head>
       <body>
-        <Layout fixedHeader>
-          <Header title={this.buildTitle()}>
+        <Layout className={ClassNames({ 'mdl-color--grey-500': true })} fixedHeader>
+          <Header className={ClassNames({ 'mdl-color--white': true })} title={<img src="/images/nem-pictures.png" />}>
             <Textfield
               value=""
               onChange={() => {}}

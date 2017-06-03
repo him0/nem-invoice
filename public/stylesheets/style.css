@@ -11787,4 +11787,12 @@ fieldset[disabled] .mdl-textfield .mdl-textfield__label,
 .mdl-cell--11-offset-desktop.mdl-cell--11-offset-desktop {
     margin-left: 91.6666666667%; } }
 
+header img {
+  height: 30px; }
+
+.invoice {
+  padding: 80px 56px; }
+  .invoice .is-small-screen {
+    padding: 40px 28px; }
+
 /*# sourceMappingURL=style.css.map*/

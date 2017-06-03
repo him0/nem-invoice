@@ -12,7 +12,8 @@ export default class Content extends React.Component {
 
   static get defaultProps() {
     return {
-      pageTitle: "Invoice"
+      pageTitle: "Invoice",
+      id: null
     };
   }
 
@@ -25,6 +26,7 @@ export default class Content extends React.Component {
     return (
       <ApplicationLayout pageTitle={this.props.pageTitle} initialData={this.buildInitialData()}>
         <div id="root" />
+        <span>{this.props.id}</span>
       </ApplicationLayout>
     )
   }

@@ -41,7 +41,6 @@ export default class InvoicesNew extends Component {
 
   submitButtonClick(e) {
     const url = '/invoices';
-    debugger;
     fetch(url, {
       method: 'POST',
       headers: {

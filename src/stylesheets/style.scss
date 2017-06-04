@@ -1,8 +1,16 @@
 @import "~react-mdl/extra/material";
 
-header {
+.mdl-layout-title {
   img {
-    height: 30px;
+    height: 45px;
+  }
+  span {
+    color: black;
+    font-size: 36px;
+    margin-left: 15px;
+    position: absolute;
+    bottom: 0;
+    font-weight: bold;
   }
 }
 
@@ -10,5 +18,10 @@ header {
   padding: 80px 56px;
   .is-small-screen {
     padding: 40px 28px;
+  }
+  .content {
+    textarea {
+      vertical-align: bottom;
+    }
   }
 }

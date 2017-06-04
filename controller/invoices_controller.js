@@ -3,7 +3,7 @@
 import Express from 'express';
 const Router = Express.Router();
 
-const uuid = require('node-uuid');
+import Invoice from '../models/invoice'
 
 Router.get('/', (req, res, next) => {
   res.redirect('/invoices/new');
@@ -15,12 +15,23 @@ Router.get('/invoices/new', (req, res, next) => {
 });
 
 Router.post('/invoices', (req, res, next) => {
-  let id = uuid.v4().split('-').join('');
-  res.redirect('/invoices/' + id);
+  let params = {
+    title: req.body.title,
+    content: req.body.content,
+    address: req.body.address,
+    amount: req.body.amount,
+  };
+  Invoice.validation(params);
+  let invoice = new Invoice(params);
+  invoice.save();
+  res.send(JSON.stringify(invoice.values()));
 });
 
 // Invoice
-Router.get('/invoices/:id', (req, res, next) => {
+Router.get('/invoices/:id(\[0\-9a\-f\]\{32\})', (req, res, next) => {
+  // let invoice = Invoice.find(req.params.id);
+  let invoice = new Invoice(); // 仮
+
   // if json required, render and returen json
   // todo
 
@@ -28,12 +39,12 @@ Router.get('/invoices/:id', (req, res, next) => {
   // todo
 
   // if html required
-  res.render('invoices/show', {id: req.params.id});
+  res.render('invoices/show', invoice.values());
 });
 
 // List of Invoices group by reciving address
 Router.get('/invoices', (req, res, next) => {
-  res.render('invoices/index', {test: "aaa"});
+  res.render('invoices/index', {});
 });
 
 module.exports = Router;

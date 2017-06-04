@@ -42,13 +42,22 @@ export default class ApplicationLayout extends React.Component {
       </head>
       <body>
         <Layout className={ClassNames({ 'mdl-color--grey-500': true })} fixedHeader>
-          <Header className={ClassNames({ 'mdl-color--white': true })} title={<img src="/images/nem-pictures.png" />}>
+          <Header
+            className={ClassNames({ 'mdl-color--white': true })}
+            title={
+              <div>
+                <img src="/images/nem-pictures.png" />
+                <span>Invoice</span>
+              </div>
+            }
+          >
             <Textfield
               value=""
               onChange={() => {}}
               label="Search"
               expandable
               expandableIcon="search"
+              style={{ color: "black" }}
             />
           </Header>
           {this.props.children}

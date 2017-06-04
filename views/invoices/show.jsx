@@ -19,6 +19,12 @@ export default class Content extends React.Component {
 
   buildInitialData () {
     return {
+      id: this.props.id,
+      title: this.props.title,
+      content: this.props.content,
+      address: this.props.address,
+      amount: this.props.amount,
+      message: this.props.message
     };
   }
 

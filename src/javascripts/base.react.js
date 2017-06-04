@@ -4,12 +4,14 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 import InvoicesIndex from './views/invoices/index';
 import InvoicesNew from './views/invoices/new';
+import InvoicesShow from './views/invoices/show';
 
 export default () => {
   render(
     <BrowserRouter>
       <Switch>
         <Route path='/invoices/new' component={InvoicesNew} />
+        <Route path='/invoices/:id' component={InvoicesShow} />
         <Route path='/invoices' component={InvoicesIndex} />
       </Switch>
     </BrowserRouter>,

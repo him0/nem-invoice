@@ -9,7 +9,8 @@ export default class InvoicesNew extends Component {
       title: "",
       content: "",
       address: "",
-      amount: ""
+      amount: "",
+      sent : false
     };
   }
 
@@ -28,31 +29,32 @@ export default class InvoicesNew extends Component {
   }
 
   changeContent(e) {
-    this.setState({content: e.target.content});
+    this.setState({content: e.target.value});
   }
 
   changeAddress(e) {
-    this.setState({address: e.target.address});
+    this.setState({address: e.target.value});
   }
 
   changeAmount(e) {
-    this.setState({amount: e.target.amount});
+    this.setState({amount: e.target.value});
   }
 
   submitButtonClick(e) {
-    const url = '/invoices';
-    fetch(url, {
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json'
-      },
-      body: JSON.stringify(this.state)
-    }).then(function(res) {
-      return res.json();
-    }).then(function(res) {
-      const id = res.id;
-      location.href = "/invoices/" + id;
-    });
+    if(this.state.sent == false) {
+      fetch('/invoices', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify(this.state)
+      }).then(function(res) {
+        console.log(res);
+        return res.json();
+      }).then(function(res) {
+        const id = res.id;
+        location.href = "/invoices/" + id;
+      });
+    }
+    this.state.sent = true;
   };
 
   render() {

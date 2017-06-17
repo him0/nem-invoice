@@ -11,19 +11,22 @@ Router.get('/', (req, res, next) => {
 
 // Create Page
 Router.get('/invoices/new', (req, res, next) => {
-  res.render('invoices/new', {});
+  let params = req.body || {};
+  res.render('invoices/new', params);
 });
 
 Router.post('/invoices', (req, res, next) => {
-  let params = {
-    title: req.body.title,
-    content: req.body.content,
-    address: req.body.address,
-    amount: req.body.amount,
-  };
-  let invoice = new Invoice(params);
-  invoice.save();
-  res.send(JSON.stringify(invoice.getValues()));
+  console.log(req.body);
+  let params = req.body || {};
+  let errors = Invoice.validate(params);
+  if(errors.length) {
+    res.redirect('/invoices/new');
+  }else {
+    // no error
+    let invoice = new Invoice(params);
+    invoice.save();
+    res.redirect('/invoices/' + invoice.id);
+  }
 });
 
 // Invoice

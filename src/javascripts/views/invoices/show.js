@@ -50,13 +50,24 @@ export default class InvoicesShow extends Component {
                   <p>{this.props.amount}</p>
                 </Cell>
               </Grid>
+
               <Grid>
-                <Cell col={8}>
+                <Cell col={12}>
                   <h3>Transaction Identifing Message</h3>
                   <p>{this.props.message}</p>
                 </Cell>
-                <Cell col={2}>
+              </Grid>
+              
+              <Grid>
+                <Cell col={4}>
                   <QRCode value="http://facebook.github.io/react/" />
+                </Cell>
+                <Cell col={8}>
+                  <lu>
+                    <li>a</li>
+                    <li>b</li>
+                    <li>c</li>
+                  </lu>
                 </Cell>
               </Grid>
                 

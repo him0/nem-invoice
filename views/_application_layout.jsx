@@ -1,7 +1,7 @@
 "use strict";
 
 import React from 'react';
-import {Layout, Drawer, Navigation, Header, Textfield, Content, Grid, Cell} from 'react-mdl';
+import { Layout, Drawer, Navigation, Header, Content, Grid, Cell } from 'react-mdl';
 import { getColorClass, getTextColorClass } from 'react-mdl';
 import ClassNames from 'classnames';
 
@@ -51,14 +51,7 @@ export default class ApplicationLayout extends React.Component {
               </div>
             }
           >
-            <Textfield
-              value=""
-              onChange={() => {}}
-              label="Search"
-              expandable
-              expandableIcon="search"
-              style={{ color: "black" }}
-            />
+            <div id="search"></div>
           </Header>
           {this.props.children}
         </Layout>

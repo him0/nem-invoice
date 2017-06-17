@@ -13,9 +13,9 @@ export default class Invoice extends FirebaseRecode {
     this.id = uuid.v4().split('-').join('');
     this.title = params.title || "";
     this.content = params.content || "";
-    this.address = params.address || "";
+    this.address = params.nemAddress || "";
     this.amount = params.amount || 1;
-    this.message = params.message || "";
+    this.timestamp = Date.now();
     this.message = uuid.v4().split('-').join('').slice(0, 10);
   }
 
@@ -26,20 +26,26 @@ export default class Invoice extends FirebaseRecode {
     });
   }
 
-  static validation(params) {
+  static validate(params) {
     let title = params.title;
     let content = params.content;
-    let address = params.address;
+    let address = params.nemAddress;
     let amount = params.amount;
     
-    if(typeof(title) == 'string' && title.size < 100 && title !== "" &&
-    typeof(content) == 'string' && content.size < 500 && content !== "" &&
-    typeof(address) == 'string' && address !== "" &&
-    typeof(amount) == 'number' && amount !== 0 &&
-    typeof(message) == "string") {
-      return true;
+    let errorMessages = [];
+    if(typeof(title) != 'string' && title.size > 100 && title == "") {
+      errorMessages.push("Title is invalid.");
     }
-    return false;
+    if(typeof(content) != 'string' && content.size > 500) {
+      errorMessages.push("Content is invalid.");
+    }
+    if(typeof(address) != 'string' && address == "") {
+      errorMessages.push("Address is invalid.");
+    }
+    if(typeof(amount) != 'number' && amount == 0) {
+      errorMessages.push("amount is invalid.");
+    }
+    return errorMessages;
   }
 
   getValues() {
@@ -49,6 +55,7 @@ export default class Invoice extends FirebaseRecode {
       content: this.content,
       address: this.address,
       amount: this.amount,
+      timestamp: this.timestamp,
       message: this.message
     };
   }

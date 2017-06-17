@@ -1,2 +1,1 @@
-webpack: webpack
-web: node ./bin/www
+web: webpack& node ./bin/www

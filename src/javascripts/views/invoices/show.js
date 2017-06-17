@@ -19,6 +19,19 @@ export default class InvoicesShow extends Component {
     return Object.assign({}, initialProps);
   }
 
+  getQrCodeValue() {
+    return(JSON.stringify({
+      "v":2,
+      "type":2,
+      "data":{
+        "addr": this.props.address,
+        "amount": this.props.amount * 1000000,
+        "msg": this.props.message,
+        "name": "XEM invoice"
+      }
+    }));
+  }
+
   render() {
     return (
       <div className="InvoicesShow">
@@ -28,20 +41,20 @@ export default class InvoicesShow extends Component {
             <Cell col={8} shadow={2} className={ClassNames({ 'mdl-color--white': true, 'invoice': true })}>
               
               <Grid>
-                <Cell col={6}>
+                <Cell col={12}>
                   <h2>{this.props.title}</h2>
                 </Cell>
               </Grid>
 
               <Grid>
                 <Cell col={8}>
-                  <p>{this.props.content}</p>
+                  <pre>{this.props.content}</pre>
                 </Cell>
               </Grid>
 
               <Grid>
                 <Cell col={7}>
-                  <h3>Reciving Address</h3>
+                  <h3>Pay to:</h3>
                   <p>{this.props.address}</p>
                 </Cell>
                 <Cell col={1}></Cell>
@@ -60,13 +73,14 @@ export default class InvoicesShow extends Component {
               
               <Grid>
                 <Cell col={4}>
-                  <QRCode value="http://facebook.github.io/react/" />
+                  <QRCode value={this.getQrCodeValue()} />
                 </Cell>
                 <Cell col={8}>
+                  <h3>How to sent</h3>
                   <lu>
-                    <li>a</li>
-                    <li>b</li>
-                    <li>c</li>
+                    <li>お財布から</li>
+                    <li>有り金全部仮想通貨に突っ込んで</li>
+                    <li>him0 氏に送る</li>
                   </lu>
                 </Cell>
               </Grid>

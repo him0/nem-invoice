@@ -13,7 +13,7 @@ export default class Invoice extends FirebaseRecode {
     this.id = uuid.v4().split('-').join('');
     this.title = params.title || "";
     this.content = params.content || "";
-    this.address = params.nemAddress || "";
+    this.address = params.address || params.nemAddress || "";
     this.amount = params.amount || 1;
     this.timestamp = Date.now();
     this.message = uuid.v4().split('-').join('').slice(0, 10);

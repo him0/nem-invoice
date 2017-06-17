@@ -40,6 +40,7 @@ Router.get('/invoices/:id(\[0\-9a\-f\]\{32\})', (req, res, next) => {
     // todo
 
     // if html required
+    console.log(invoice.getValues());
     res.render('invoices/show', invoice.getValues());
   });
 });

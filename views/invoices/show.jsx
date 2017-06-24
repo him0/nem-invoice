@@ -24,7 +24,9 @@ export default class Content extends React.Component {
       content: this.props.content,
       address: this.props.address,
       amount: this.props.amount,
-      message: this.props.message
+      transactionHash: this.props.transactionHash,
+      message: this.props.message,
+      timestamp: this.props.timestamp
     };
   }
 

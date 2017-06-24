@@ -25,6 +25,8 @@ export default class FirebaseRecode {
     database.ref(path + id).once('value').then((data) => {
       if(data.exists()) {
         callback(data.val());
+      }else{
+        callback(false);
       }
     });
   }

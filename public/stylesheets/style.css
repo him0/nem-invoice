@@ -11808,5 +11808,7 @@ fieldset[disabled] .mdl-textfield .mdl-textfield__label,
     font-size: 20px;
     margin-top: 5px;
     margin-bottom: 5px; }
+  .invoice ol {
+    padding-left: 20px; }
 
 /*# sourceMappingURL=style.css.map*/

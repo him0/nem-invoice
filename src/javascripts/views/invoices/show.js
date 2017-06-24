@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Grid, Cell, Card, Textfield, Button} from 'react-mdl';
+import { Grid, Cell, Card, Textfield, Button } from 'react-mdl';
 import ClassNames from 'classnames';
 
 import QRCode from 'qrcode.react';
@@ -70,20 +70,34 @@ export default class InvoicesShow extends Component {
                   <p>{this.props.message}</p>
                 </Cell>
               </Grid>
-              
-              <Grid>
-                <Cell col={4}>
-                  <QRCode value={this.getQrCodeValue()} />
-                </Cell>
-                <Cell col={8}>
-                  <h3>How to sent</h3>
-                  <lu>
-                    <li>お財布から</li>
-                    <li>有り金全部仮想通貨に突っ込んで</li>
-                    <li>him0 氏に送る</li>
-                  </lu>
-                </Cell>
-              </Grid>
+
+              {(() => {
+                if (this.props.transactionHash){
+                  return(
+                    <Grid>
+                      <Cell col={12}>
+                        <h3>Paid !</h3>
+                        <p>{this.props.transactionHash}</p>
+                      </Cell>
+                    </Grid>
+                  );
+                }
+                return(
+                  <Grid>
+                    <Cell col={4}>
+                      <QRCode value={this.getQrCodeValue()} />
+                    </Cell>
+                    <Cell col={8}>
+                      <h3>How to sent</h3>
+                      <ol>
+                        <li>お財布から</li>
+                        <li>有り金全部仮想通貨に突っ込んで</li>
+                        <li>him0 氏に送る</li>
+                      </ol>
+                    </Cell>
+                  </Grid>
+                  );
+              })()}
                 
             </Cell>
             <Cell col={2}></Cell>

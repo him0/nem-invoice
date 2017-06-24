@@ -16,7 +16,6 @@ Router.get('/invoices/new', (req, res, next) => {
 });
 
 Router.post('/invoices', (req, res, next) => {
-  console.log(req.body);
   let params = req.body || {};
   let errors = Invoice.validate(params);
   if(errors.length) {
@@ -33,15 +32,20 @@ Router.post('/invoices', (req, res, next) => {
 Router.get('/invoices/:id(\[0\-9a\-f\]\{32\})', (req, res, next) => {
   let id = req.params.id;
   Invoice.find(id, (invoice) => {
-    // if json required, render and returen json
-    // todo
-
-    // if pdf required, render and returen pdf
-    // todo
-
-    // if html required
-    console.log(invoice.getValues());
+    if(invoice == false) { res.status(404).send('Not found'); }
+    invoice.updateStatus();
     res.render('invoices/show', invoice.getValues());
+  });
+});
+
+// Invice json
+Router.get('/invoices/:id(\[0\-9a\-f\]\{32\}).json', (req, res, next) => {
+  let id = req.params.id;
+  Invoice.find(id, (invoice) => {
+    if(invoice == false) { res.status(404).send('Not found'); }
+    invoice.updateStatus();
+    res.setHeader('Content-Type', 'application/json');
+    res.send(JSON.stringify(invoice.getValues()));
   });
 });
 

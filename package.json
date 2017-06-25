@@ -6,6 +6,7 @@
   "scripts": {
     "build": "NODE_ENV=production webpack",
     "start": "nf start -j Procfile.production",
+    "postinstall": "npm run build",
     "webpack": "webpack",
     "debug": "nf start -j Procfile.development"
   },
